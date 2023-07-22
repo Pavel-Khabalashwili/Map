@@ -1,0 +1,33 @@
+
+[class*="ground-pane"]{
+   filter: grayscale(1);
+}
+
+#scroll{
+   width: 400px;
+   height: 310px;
+   background: white;
+   padding: 20px 30px;
+   font-size: 14px;
+}
+
+.simplebar-scrollbar{
+   background: #CCB26E;
+   width: 6px;
+   border-radius: 5px;
+}
+
+.simplebar-scrollbar::before{
+   display: none;
+}
+
+.simplebar-track.simplebar-vertical{
+   padding: 7px 0;
+}
+
+      /**
+   * Reinstate scrolling for non-JS clients
+   */
+   .simplebar-content-wrapper {
+   overflow: auto;
+   }

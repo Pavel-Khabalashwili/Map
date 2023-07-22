@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="shortcut icon" href="icon.png">
+   <title>Бонус</title>
+
+   <link rel="preconnect" href="https://fonts.googleapis.com"> 
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+   
+   <style> 
+      *{
+         box-sizing: border-box;
+      }
+
+      body{
+         background: #424242;
+         font-family: 'Open Sans', Helvetica, sans-serif;
+         display: flex;
+         align-items: flex-start;
+         padding: 20px;
+         margin: 0;
+         width: 2400px;
+      }
+
+      body>*{
+         margin-right: 60px;
+      }
+
+      h2{
+         font-size: 18px;
+         margin-top: 0;
+      }
+   </style>
+   
+   <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css" /> 
+   <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+
+   <link rel="stylesheet" href="css/check.css">
+   <link rel="stylesheet" href="libs/choices.min.css">
+   <link rel="stylesheet" href="css/choises.css">
+   <link rel="stylesheet" href="css/scroll.css">
+   <link rel="stylesheet" href="css/tooltip.css">
+   <link rel="stylesheet" href="css/form.css">
+
+</head>
+<body>
+   <div id="checkboxes">
+      <h2>Категории:</h2>
+      <label class="label_check">
+         <input type="checkbox" name="check1" id="check1" class="check">
+         Динозавры
+         <span></span>
+      </label>
+      <label class="label_check">
+         <input type="checkbox" name="check1" id="check2" class="check">
+         Медведи
+         <span></span>
+      </label>
+      <label class="label_check">
+         <input type="checkbox" name="check1" id="check3" class="check">
+         Косули
+         <span></span>
+      </label>
+      <label class="label_check">
+         <input type="checkbox" name="check1" id="check4" class="check">
+         Лисы
+         <span></span>
+      </label>
+      <label class="label_check">
+         <input type="checkbox" name="check1" id="check5" class="check">
+         Волки
+         <span></span>
+      </label>
+      <label class="label_check">
+         <input type="checkbox" name="check1" id="check6" class="check">
+         Олени и лоси
+         <span></span>
+      </label>
+   </div>
+
+
+
+   <div class="choise">
+      <select name="" id="select_mat" class="select">
+         <option value="">Древесина</option>
+         <option value="">Металл</option>
+         <option value="">Камень</option>
+         <option value="">Пластик</option>
+         <option value="">Композитный</option>
+         <option value="">Гипс</option>
+         <option value="" selected disabled>Материал</option>
+      </select>
+   </div>
+
+   <script src="/libs/choices.min.js"></script>
+   <script>
+       const choices = new Choices('#select_mat', {
+         searchEnabled: false,
+         shouldSort: false,
+         shouldSortItems: false,
+       });
+   </script>
+
+
+   <div id="map" style="width: 460px; height: 460px;"></div>
+   <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
+   <script type="text/javascript">
+      // Функция ymaps.ready() будет вызвана, когда
+      // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+      ymaps.ready(init);
+      function init(){
+          // Создание карты.
+          var myMap = new ymaps.Map("map", {
+              // Координаты центра карты.
+              // Порядок по умолчанию: «широта, долгота».
+              // Чтобы не определять координаты центра карты вручную,
+              // воспользуйтесь инструментом Определение координат.
+              center: [55.755, 37.611],
+              // Уровень масштабирования. Допустимые значения:
+              // от 0 (весь мир) до 19.
+              zoom: 15
+          });
+
+         var myPlaceMark = new ymaps.Placemark([55.755, 37.611], {}, {
+            iconLayout: "default#image",
+            iconImageHref: "/Subtract.svg", 
+            iconImageSize: [30, 42],
+            iconImageOffset: [-3, -42]
+         });
+
+         // Размещение геообъекта на карте.
+         myMap.geoObjects.add(myPlaceMark); 
+      }
+  </script>
+
+
+  <div id="scroll" data-simplebar>
+   Сложно сказать, почему многие известные личности представлены в исключительно положительном свете. Лишь активно развивающиеся страны третьего мира будут объективно рассмотрены соответствующими инстанциями. Мы вынуждены отталкиваться от того, что высокотехнологичная концепция общественного уклада представляет собой интересный эксперимент проверки глубокомысленных рассуждений. Имеется спорная точка зрения, гласящая примерно следующее: непосредственные участники технического прогресса освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, обнародованы. Значимость этих проблем настолько очевидна, что социально-экономическое развитие, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для первоочередных требований.
+  </div>
+
+  <form action="" class="form" id="form">
+      <div class="form__name">
+         <input type="text" name="name" placeholder="Имя*" data-validate-field="name">
+      </div>
+      <div class="form__tel">
+         <input type="tel" name="tel" placeholder="Телефон*" data-validate-field="tel" data-validate-rules="phone">
+      </div>
+      <div class="form__email">
+         <input type="email" name="mail" placeholder="E-mail*" data-validate-field="mail">
+      </div>
+
+      <input class="form__submit" type="submit" form="form">
+  </form>
+
+  <script src="libs/inputmask.min.js"></script>
+  <script src="libs/just-validate.min.js"></script>
+
+  <script>
+   let select = document.querySelector("input[type='tel']");
+   let im = new Inputmask("+7 (999)-999-99-99");
+   im.mask(select);
+
+   new JustValidate('.form', {
+      rules: {
+         name: {
+            required: true, 
+            minLength: 2,
+            maxLength: 10
+         },
+         tel: {
+            required: true, 
+            function: (name, value) =>{
+               const phone = select.inputmask.unmaskedvalue();
+               console.log(phone)
+               return Number(phone) && phone.length === 10;
+            }
+         },
+         mail: {
+            required: true, 
+            email: true
+         },
+      },
+      messages: {
+         name: 'Вы не ввели имя',
+         mail: 'Вы не ввели e-mail',
+         tel:  'Вы не ввели телефон'
+      },
+   });
+
+
+  </script>
+
+  <div id="tooltip">
+      Следует отметить, что социально-экономическое развитие способствует повышению качества переосмысления внешнеэкономических политик.
+      <span class="marker">
+         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM8 3C7.33333 3 7 3.31919 7 3.95758C7 4.60026 7.33333 4.92159 8 4.92159C8.33333 4.92159 8.58233 4.83805 8.74699 4.67095C8.91566 4.49957 9 4.26178 9 3.95758C9 3.31919 8.66667 3 8 3ZM7.07831 13H8.91566V5.81491H7.07831V13Z" fill="#CCB26E"/>
+         </svg>
+
+         <div class="popup">
+            Глава 2, страница 176
+         </div>
+      </span>
+  </div>
+
+</body>
+</html>
